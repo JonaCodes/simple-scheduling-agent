@@ -1,18 +1,19 @@
 import { askGeminiWithMessages } from './llmService.js';
 import { getUserInput } from './cli-io.js';
+import chalk from 'chalk';
 
 const checkAvailability = (date) => {
-    console.log("Checking availability for date:", date);
+    console.log(chalk.blue("Checking availability for date:"), date);
     return { available: true }
 }
 
 const scheduleAppointment = (date) => {
-    console.log("Scheduling appointment for date:", date);
+    console.log(chalk.green("Scheduling appointment for date:"), date);
     return { success: true }
 }
 
 const deleteAppointment = (date) => {
-    console.log("Deleting appointment for date:", date);
+    console.log(chalk.yellow("Deleting appointment for date:"), date);
     return { success: true }
 }
 
