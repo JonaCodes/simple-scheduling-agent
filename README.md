@@ -1,6 +1,7 @@
 # A Humble Agent, in Parts
 
 In this project you will build a simple scheduling agent. But we will build it in parts
+
 Run this project with a simple `node agent.js` command
 
 ## Part 1: The Memory Loop
