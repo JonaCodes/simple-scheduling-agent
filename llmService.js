@@ -11,7 +11,7 @@ const gemini = new GoogleGenAI({});
     const llmResponse = await askGeminiWithMessages([
         {
             role: 'user',
-            content: 'What is your name? Respond in valid JSON: {"name": "John Doe"}',
+            parts: [{ text: 'What is your name? Respond in valid JSON: {"name": "John Doe"}' }],
         },
     ]);
 
