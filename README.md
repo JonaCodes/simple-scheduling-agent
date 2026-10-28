@@ -88,3 +88,29 @@ Gemini: Your appointment has been moved to April 3rd, 1991 at 9:45 PM. I'm finis
 
 If you want to be fancy, you can use [chalk](https://www.npmjs.com/package/chalk) to add colors
 <img width="616" height="218" alt="image" src="https://github.com/user-attachments/assets/84a3919f-6440-4a95-87d3-f3e72e0ca580" />
+
+## Gemini API
+
+Use `gemini-3.5-flash-lite` for generation. Leave thinking settings unset to use
+the model's default minimal thinking; this does not guarantee zero thinking tokens.
+
+If you run out of Flash-Lite usage, you can also try `gemini-3.8-flash` with the
+same Gemini API key, but it can be slower. Availability and quotas depend on your
+account; switching models may not bypass shared limits. Check your current
+[Gemini API limits](https://ai.google.dev/gemini-api/docs/rate-limits).
+
+### Other API providers
+
+You can also try these providers. Use the provider's own API key and adapt the
+request wrapper to its endpoint or SDK.
+
+| Provider | Free offering |
+| --- | --- |
+| [**Mistral**](https://docs.mistral.ai/getting-started/quickstarts/studio/activate-and-generate-api-key) | Free API mode, **no credit card required**. Usage quotas are shown in the account dashboard. |
+| [**Groq**](https://console.groq.com/docs/rate-limits) | For `qwen/qwen3.8-27b`: **30 requests/minute, 1,000/day, 8,000 tokens/minute**, subject to account limits. |
+| [**OpenRouter**](https://openrouter.ai/pricing) | Free models, **50 requests/day** without purchasing credits. |
+
+Free-tier limits can change; check the linked provider pages and your account dashboard.
+
+The supplied `askGeminiWithMessages` helper treats the first `role: 'model'`
+memory entry as the system instruction. Later model turns remain conversation history.
