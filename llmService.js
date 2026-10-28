@@ -19,14 +19,19 @@ const gemini = new GoogleGenAI({});
 */
 
 export const askGeminiWithMessages = async (messages) => {
+    // The existing agents store their system instruction as the first model turn.
+    const hasSystemInstruction = messages[0]?.role === 'model';
+    const contents = hasSystemInstruction ? messages.slice(1) : messages;
+    const systemInstruction = hasSystemInstruction
+        ? { parts: messages[0].parts }
+        : undefined;
+
     try {
         const result = await gemini.models.generateContent({
-            model: 'gemini-2.5-flash',
-            contents: messages,
+            model: 'gemini-3.5-flash-lite',
+            contents,
             config: {
-                thinkingConfig: {
-                    thinkingBudget: 0,
-                },
+                systemInstruction,
             },
         });
 
